@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "534b54d6-b64a-408a-be25-601a196985a1": {
+      "ProjectGuid": "534b54d6-b64a-408a-be25-601a196985a1",
+      "DisplayName": "AssasApi",
+      "ColorIndex": 0
+    },
+    "653177da-fd63-4c2d-a815-044c07f36817": {
+      "ProjectGuid": "653177da-fd63-4c2d-a815-044c07f36817",
+      "DisplayName": "AssasApi.Teste",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

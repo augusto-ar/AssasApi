@@ -1,0 +1,8 @@
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\bin\Debug\AssasApi.dll
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\bin\Debug\AssasApi.pdb
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.csproj.CoreCompileInputs.cache
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.csproj.CopyComplete
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.dll
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.pdb

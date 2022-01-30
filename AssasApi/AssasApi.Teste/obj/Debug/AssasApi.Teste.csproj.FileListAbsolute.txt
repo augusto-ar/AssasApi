@@ -1,0 +1,13 @@
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\AssasApi.Teste.exe.config
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\AssasApi.Teste.exe
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\AssasApi.Teste.pdb
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\AssasApi.dll
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\Newtonsoft.Json.dll
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\AssasApi.pdb
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\bin\Debug\Newtonsoft.Json.xml
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\obj\Debug\AssasApi.Teste.csproj.AssemblyReference.cache
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\obj\Debug\AssasApi.Teste.csproj.SuggestedBindingRedirects.cache
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\obj\Debug\AssasApi.Teste.csproj.CoreCompileInputs.cache
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\obj\Debug\AssasApi.Teste.csproj.CopyComplete
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\obj\Debug\AssasApi.Teste.exe
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi.Teste\obj\Debug\AssasApi.Teste.pdb
