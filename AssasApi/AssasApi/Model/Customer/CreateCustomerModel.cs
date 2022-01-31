@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace AssasApi.Model.Customer
 {
-    public class CustomerResponse
+    public class CreateCustomerModel
     {
-        public string Id { get; set; }
-
-        public DateTime DateCreated { get; set; }
-
         public string Name { get; set; }
 
         public string Email { get; set; }
@@ -40,16 +36,10 @@ namespace AssasApi.Model.Customer
 
         public string MunicipalInscription { get; set; }
 
-        public PersonType? PersonType { get; set; }
-
-        public bool Deleted { get; set; }
-
-        public long? CityId { get; set; }
-
-        public string State { get; set; }
-
-        public string Country { get; set; }
+        public string StateInscription { get; set; }
 
         public string Observations { get; set; }
+
+        public string GroupName { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssasApi.Model.Customer
+namespace AssasApi.Filter
 {
     public class CustomerFilter : BaseFilter
     {
@@ -28,7 +28,7 @@ namespace AssasApi.Model.Customer
                 queryFilter += string.IsNullOrEmpty(queryFilter) ? "&groupName=" : "groupName=" + GroupName;
             if (limit > 0)
                 queryFilter += string.IsNullOrEmpty(queryFilter) ? "&limit=" : "limit=" + limit.ToString();
-            if(offset > 0)
+            if (offset > 0)
                 queryFilter += string.IsNullOrEmpty(queryFilter) ? "&offset=" : "offset=" + offset.ToString();
 
             return queryFilter;

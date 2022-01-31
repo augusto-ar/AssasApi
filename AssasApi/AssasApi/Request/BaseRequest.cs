@@ -2,31 +2,38 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
-using AssasApi.Data.Response;
+using AssasApi.Model.Response;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace AssasApi.Request
 {
     public class BaseRequest
     {
+        protected readonly string paymentsRoute = "/payments";
+        protected readonly string custormersRoute = "/customers";
         protected readonly ApiSettings _apiSettings = null;
         protected readonly HttpClient _httpClient = null;
 
-        public BaseRequest(ApiSettings apiSettings)
+        protected BaseRequest(ApiSettings apiSettings)
         {
             _apiSettings = apiSettings;
-            _httpClient = HttpClient();
+            _httpClient = new HttpClient{ BaseAddress = _apiSettings.BaseAddress };
             Head();
         }
 
-        public async Task<Object<T>> PostAsync<T>(string route, object obj)
+        protected async Task<ResponseRequest<T>> PostAsync<T>(string route, object obj)
         {
-            var content = new StringContent(obj == null ? string.Empty : JsonConvert.SerializeObject(obj), Encoding.UTF8, "");
+            var content = new StringContent(JsonConvert.SerializeObject(obj, new JsonSerializerSettings
+            {
+                ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+                Converters = new List<JsonConverter> { new Newtonsoft.Json.Converters.StringEnumConverter() }
+            }), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(ApiRoute(route), content);
 
-            return await ResponseRequest<T>(response);
+            return await ResponseRequest<T>(response,false);
         }
-        public async Task<Object<T>> GetAsync<T>(string route, string id = null)
+        protected async Task<ResponseRequest<T>> GetAsync<T>(string route, string id = null)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -34,45 +41,31 @@ namespace AssasApi.Request
             }
             var response = await _httpClient.GetAsync(ApiRoute(route));
 
-            return await ResponseRequest<T>(response);
+            return await ResponseRequest<T>(response,false);
         }
-        public async Task<ObjectList<T>> ListAsync<T>(string route, string filter = null)
+        protected async Task<ResponseRequest<T>> ListAsync<T>(string route, string filter = null)
         {
             if (!string.IsNullOrEmpty(filter))
                 route += "?" + filter;
 
             var response = await _httpClient.GetAsync(ApiRoute(route));
 
-            return await ResponseRequestList<T>(response);
+            return await ResponseRequest<T>(response,true);
         }
-        public async Task DeleteAsync(string route, string id)
+        protected async Task DeleteAsync(string route, string id)
         {
             var response = await _httpClient.DeleteAsync(ApiRoute(route + $"/{id}"));
         }
         #region
-        private HttpClient HttpClient()
-        {
-            return new HttpClient
-            {
-                BaseAddress = _apiSettings.BaseAddress,
-                Timeout = _apiSettings.TimeOut,
-            };
-        }
         private void Head() => _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("access_token", _apiSettings.AccessToken);
         private string ApiRoute(string route) => $"/api/v3/{route}";
-        private async Task<Object<T>> ResponseRequest<T>(HttpResponseMessage httpResponseMessage)
+        private async Task<ResponseRequest<T>> ResponseRequest<T>(HttpResponseMessage httpResponseMessage,bool ehLista)
         {
             string result = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            return new Object<T>(httpResponseMessage.StatusCode, result);
+            return new ResponseRequest<T>(httpResponseMessage.StatusCode, result, ehLista);
         }
-        private async Task<ObjectList<T>> ResponseRequestList<T>(HttpResponseMessage httpResponseMessage)
-        {
-            string result = await httpResponseMessage.Content.ReadAsStringAsync();
-
-            return new ObjectList<T>(httpResponseMessage.StatusCode, result);
-        }
-
+        
         #endregion
     }
 }

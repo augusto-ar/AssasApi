@@ -8,13 +8,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssasApi.Data.Response
+namespace AssasApi.Model.Response
 {
-    public abstract class BaseObject
+    public abstract class BaseResponse
     {
-        private HttpStatusCode HttpStatusCode;
         public Notificacao Notificacao;
-        private string ResponseData;
         private enum StatusCode
         {
             [Description("Não foi enviada API Key ou ela é inválida.")]
@@ -29,25 +27,23 @@ namespace AssasApi.Data.Response
             InternalServerError = 500
         }
 
-        public BaseObject(HttpStatusCode httpStatusCode, string content)
+        public BaseResponse(HttpStatusCode httpStatusCode, string content)
         {
             Notificacao = new Notificacao();
-            HttpStatusCode = httpStatusCode;
-            ResponseData = content;
-            Erro();
+            Erro(content, httpStatusCode);
         }
 
-        private void Erro()
+        private void Erro(string content, HttpStatusCode httpStatusCode)
         {
-            if (HttpStatusCode != HttpStatusCode.OK)
+            if (httpStatusCode != HttpStatusCode.OK)
             {
-                var erro = HttpStatusCode == HttpStatusCode.BadRequest ? BadRequest() : CodigoErroHTTP((StatusCode)HttpStatusCode);
+                var erro = httpStatusCode == HttpStatusCode.BadRequest ? BadRequest(content) : CodigoErroHTTP((StatusCode)httpStatusCode);
                 Notificacao.Add(erro);
             }
         }
-        private string BadRequest()
+        private string BadRequest(string content)
         {
-            var erroRequest = Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectErro>(ResponseData);
+            var erroRequest = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseErro>(content);
             return erroRequest != null && erroRequest.errors.Count() > 0 ? erroRequest.errors.Select(x => x.description)
                                  .ToList().Aggregate((i, j) => i + "," + j) : "erro";
         }

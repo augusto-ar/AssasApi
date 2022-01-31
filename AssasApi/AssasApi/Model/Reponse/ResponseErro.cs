@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssasApi.Data.Response
+namespace AssasApi.Model.Response
 {
     public class Error
     {
@@ -12,7 +12,7 @@ namespace AssasApi.Data.Response
         public string description { get; set; }
     }
 
-    public class ObjectErro
+    public class ResponseErro
     {
         public List<Error> errors { get; set; }
     }

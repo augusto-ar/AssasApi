@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssasApi.Model
+namespace AssasApi.Model.Payments
 {
-    public class BaseFilter
+    public class InterestModel
     {
-        public int offset { get; set; } 
-        public int limit { get; set; }
+        public decimal Value { get; set; }
     }
 }

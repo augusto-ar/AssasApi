@@ -34,7 +34,8 @@ namespace AssasApi
     }
     public enum PersonType
     {
-        FISICA, JURIDICA
+        FISICA = 1,
+        JURIDICA = 2
     }
     public enum BillingType
     {
@@ -58,5 +59,26 @@ namespace AssasApi
         DUNNING_RECEIVED = 11,
         AWAITING_RISK_ANALYSIS = 12,
         PENDING = 13,
+    }
+    public enum DiscountType
+    {
+        FIXED = 1,
+        PERCENTAGE = 2
+    }
+    public enum PaymentStatus
+    {
+        PENDING = 1,
+        RECEIVED = 2,
+        CONFIRMED = 3,
+        OVERDUE = 4,
+        REFUNDED = 5,
+        RECEIVED_IN_CASH = 6,
+        REFUND_REQUESTED = 7,
+        CHARGEBACK_REQUESTED = 8,
+        CHARGEBACK_DISPUTE = 9,
+        AWAITING_CHARGEBACK_REVERSAL = 10,
+        DUNNING_REQUESTED = 11,
+        DUNNING_RECEIVED = 12,
+        AWAITING_RISK_ANALYSIS = 13
     }
 }

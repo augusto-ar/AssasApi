@@ -1,33 +1,35 @@
 ﻿using System.Threading.Tasks;
 using AssasApi.Request;
 using AssasApi.Model.Customer;
-using AssasApi.Data.Response;
+using AssasApi.Model.Response;
+using AssasApi.Filter;
 
 namespace AssasApi.Data.BLL
 {
     public class CustomersBLL : BaseRequest
     {
-        private readonly string custormersRoute = "/customers";
 
         public CustomersBLL(ApiSettings settings) : base(settings) { }
 
-        public async Task<Object<CustomerResponse>> CreatAsync(CreateCustomerRequest create)
+        public async Task<ResponseRequest<CustomerModel>> CreatAsync(CreateCustomerModel create)
         {
-           return await PostAsync<CustomerResponse>(custormersRoute, create);
+           return await PostAsync<CustomerModel>(custormersRoute, create);
         }
 
-        public async Task<Object<CustomerResponse>> UpdateAsync(UpdateCustomerRequest update)
+        public async Task<ResponseRequest<CustomerModel>> UpdateAsync(UpdateCustomerModel update)
         {
-            return await PostAsync<CustomerResponse>(custormersRoute, update);
+            return await PostAsync<CustomerModel>($"{custormersRoute}/{update.CustomerId}", update);
         }
 
-        public async Task<Object<CustomerResponse>> ReadAsync(string id)
+        public async Task<ResponseRequest<CustomerModel>> LoadAsync(string id)
         {
-            return await GetAsync<CustomerResponse>(custormersRoute, id);
+            return await GetAsync<CustomerModel>(custormersRoute, id);
         }
-        public async Task<ObjectList<CustomerResponse>> ListAsync(CustomerFilter filter)
+        public async Task<ResponseRequest<CustomerModel>> ListAsync(CustomerFilter filter = null)
         {
-            return await ListAsync<CustomerResponse>(custormersRoute, filter.GetFilter());
+            string queryFilter = filter != null ? filter.GetFilter() : null;
+
+            return await ListAsync<CustomerModel>(custormersRoute, queryFilter);
         }
 
         public async Task DeleteAsync(string id = null)
