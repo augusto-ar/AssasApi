@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,9 +31,9 @@ namespace AssasApi.Model.Payments
         public InterestModel Interest { get; set; }
 
         public FineModel Fine { get; set; }
-
+        [JsonConverter(typeof(StringEnumConverter))]
         public BillingType BillingType { get; set; }
-
+        [JsonConverter(typeof(StringEnumConverter))]
         public PaymentStatus Status { get; set; }
 
         public string Description { get; set; }

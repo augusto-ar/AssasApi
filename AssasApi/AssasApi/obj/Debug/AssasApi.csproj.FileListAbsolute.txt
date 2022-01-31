@@ -6,3 +6,4 @@ C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.cs
 C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.csproj.CopyComplete
 C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.dll
 C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.pdb
+C:\Users\augus\Documents\GitHub\AssasApi\AssasApi\AssasApi\obj\Debug\AssasApi.csproj.AssemblyReference.cache

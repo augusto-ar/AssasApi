@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +41,7 @@ namespace AssasApi.Model.Customer
         public string AdditionalEmails { get; set; }
 
         public string MunicipalInscription { get; set; }
-
+        [JsonConverter(typeof(StringEnumConverter))]
         public PersonType? PersonType { get; set; }
 
         public bool Deleted { get; set; }

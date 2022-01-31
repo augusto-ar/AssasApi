@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace AssasApi.Model.Payments
     {
         public string Id { get; set; } 
         public string Customer { get; set; }
-
+        [JsonConverter(typeof(StringEnumConverter))]
         public BillingType? BillingType { get; set; }
 
         public decimal? Value { get; set; }
